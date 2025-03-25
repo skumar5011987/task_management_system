@@ -60,7 +60,7 @@
 
 > Create a Superuser (for Admin Access)
 
-- either use:
+#### either use:
  - username = sam
  - password = sam@123!
  
@@ -194,7 +194,7 @@
 # Admin Panel Access
 
 - URL: http://127.0.0.1:8000/admin/
-- User credentials:
+#### User credentials:
  - username = sam
  - password = sam@123!
 
