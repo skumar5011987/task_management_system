@@ -61,12 +61,13 @@
 > Create a Superuser (for Admin Access)
 
 - either use:
- username = sam
- password = sam@123!
+ - username = sam
+ - password = sam@123!
  
  OR
 
- Create your own
+- Create your own
+
  python manage.py createsuperuser
 
 
@@ -81,7 +82,8 @@
 
 - URL: http://localhost:8000/api/register/
 - Method: POST
-- Request Body: 
+### Request Body:
+```json
  {
     "username": "john_doe",
     "email": "johndoe@example.com",
@@ -90,30 +92,38 @@
     "role": "manager",
     "password": "securepassword"
  }
+```
 
-- Response:
- {
-    "id": 5,
-    "username": "john_doe",
-    "email": "johndoe@example.com",
-    "gender": "male",
-    "role": "manager",
-    "mobile": "9876543210"
+### Response:
+```json
+{
+  "id": 4,
+  "name": "Fix User Sign up flow",
+  "description": "Users are unable to Sign up due to incorrect data validation.",
+  "task_type": "bug",
+  "status": "pending",
+  "blocked_reason": null,
+  "created_at": "2025-03-25T13:00:19.718955Z",
+  "completed_at": null
 }
+```
 
 2. Create a Task
 
 - URL: http://localhost:8000/api/tasks/
 - Method: POST
-- Request Body: 
+### Request Body: 
+```json
  {
     "name": "Fix User Sign up flow",
     "description": "Users are unable to Sign up in due to incorrect data validation.",
     "task_type": "bug",
     "status": "pending"
  }
+ ```
 
-- Response:
+### Response:
+```json
  {
     "id": 4,
     "name": "Fix User Sign up flow",
@@ -124,29 +134,35 @@
     "created_at": "2025-03-25T13:00:19.718955Z",
     "completed_at": null
  }
+```
 
 
 3. Assign Task to User
 
 - URL: http://127.0.0.1:8000/api/tasks/4/assign/
 - Method: POST
-- Request Body: 
+### Request Body: 
+```json
  {
     "user_ids":[2,3]
  }
+```
 
-- Response:
+### Response:
+```json
  {
     "status": 1,
     "message": "Task assigned successfully"
  }
+```
 
 
 4. Get Tasks Assigned to a User
 
 - URL: http://127.0.0.1:8000/api/users/{user_id}/tasks/
 - Method: GET
-- Response:
+### Response:
+```json
  {
     "message": "ok",
     "data": [
@@ -171,15 +187,16 @@
             "completed_at": null
         }
     ]
- }
+}
+```
 
 
 # Admin Panel Access
 
 - URL: http://127.0.0.1:8000/admin/
 - User credentials:
- username = sam
- password = sam@123!
+ - username = sam
+ - password = sam@123!
 
 OR 
 
